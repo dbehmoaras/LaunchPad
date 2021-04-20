@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Build out back end API access from here
 
-class API_USER extends Component {
+class API_User extends Component {
   constructor(props) {
     super(props)
   }
@@ -18,4 +18,4 @@ class API_USER extends Component {
   }
 }
 
-export default API_USER;
+export default API_User;

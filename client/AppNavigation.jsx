@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
 import { Route, Switch, NavLink, BrowserRouter, withRouter, Redirect } from 'react-router-dom'
 
+//import necessary route constants
+import * as routes from './constants/routeStrings'
+
 //import necessary components
-import API_Home from './containers/API_Home.jsx';
+import API_User from './containers/API_User.jsx';
 
 
+//add more links here
 const NavigationLinks = () => (
 	<React.Fragment>
 		<NavLink to = '/'>
 			<button >Home</button>
 		</NavLink>
 
-		<NavLink to = '/API_User'>
+		<NavLink to = {routes.API_User_Route}>
 			<button >Go to User API</button>
 		</NavLink>
 
-		{/* insert more navigation links here */}
+		{/* ADD MORE NAV LINK BUTTONS HERE*/}
 	</React.Fragment>
 )
 
-//need to figure out how to pass
+//add more routes here
 const RouteLinks = () => (
-	<React.fragment>
+	<React.Fragment>
 		<Route exact path='/' render ={() => <h3>Welcome to Launchpad</h3>}/>
-		<Route path='/API_Home' children={({match}) => match && <API_Home/>}/>
-	</React.fragment>
+		<Route path={routes.API_User_Route} children={({match}) => match && <API_User/>}/>
+
+		{/* ADD MORE ROUTES HERE */}
+	</React.Fragment>
 )
 
 
@@ -43,11 +49,8 @@ class AppNavigation extends Component {
 					{/* render the Navigation Component inside of the navigation container div */}
 					<NavigationLinks/>
 					<div>________________________________________________</div>
-					{/* <RouteLinks/> */}
-					{/* <Navigation /> */}
+					<RouteLinks/>
 				</div>
-				<Route exact path='/' render ={() => <h3>Welcome to Launchpad</h3>}/>
-				<Route path='/API_USER' children={({match}) => match && <API_USER/>}/>
 			</div>
 		)
 	}

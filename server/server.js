@@ -7,9 +7,16 @@ const leaderList = [
   {name: 'Lucy', age: 29}
 ]
 
+const welcomeToAPI = 'WELCOME TO API'
+
 app.get('/api/leaders',(req,res) => {
   return res.status(200).send(leaderList);
 })
+
+app.get('/api',(req,res) => {
+  return res.status(200).send(welcomeToAPI);
+})
+
 
 if (process.env.NODE_ENV === 'production'){
   //statically serve everything in the build folder on the route '/build'

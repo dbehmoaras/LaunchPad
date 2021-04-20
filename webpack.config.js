@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -28,9 +29,10 @@ module.exports = {
     ]
   },
   devServer: {
+    historyApiFallback: true,
     publicPath: '/build', //the default port is 8080, the default webpack dev server, load static files
     proxy: {
-      '/api/leaders': 'http://localhost:3000' //connects to the proxy server, in server.js. how we connect to node. points to the /api/leaders route in server.js
+      '/api': 'http://localhost:3000' //connects to the proxy server, in server.js. how we connect to node. points to the /api/leaders route in server.js
     }
   }
 }

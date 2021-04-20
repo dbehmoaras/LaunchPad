@@ -1,10 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import AppNavigation from './AppNavigation.jsx';
+import { BrowserRouter } from 'react-router-dom';
 
 import styles from './scss/styleBundle.scss';
 
 render(
-	<App />,
+	<BrowserRouter>
+		<AppNavigation />
+	</BrowserRouter>,
 	document.getElementById('root')
 )

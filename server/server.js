@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const leaderList = [
+const testObj = [
   {name: 'David', age: 29 },
   {name: 'Lucy', age: 29}
 ]
@@ -10,7 +10,7 @@ const leaderList = [
 const welcomeToAPI = 'WELCOME TO API'
 
 app.get('/server/leaders',(req,res) => {
-  return res.status(200).send(leaderList);
+  return res.status(200).send(testObj);
 })
 
 app.get('/server',(req,res) => {
@@ -27,4 +27,4 @@ if (process.env.NODE_ENV === 'production'){
   });
 }
 
-app.listen(3000) //listens on port 3000
+app.listen(4000) //listens on port 3000

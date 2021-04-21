@@ -3,7 +3,7 @@ import { Route, NavLink } from 'react-router-dom';
 
 
 //import necessary route constants
-import * as routes from './../constants/routeStrings';
+import * as clientRoutes from './../constants/clientRouteStrings';
 
 //import child classes to have them rendered through the router
 import User_SignUp from './../components/User_SignUp.jsx';
@@ -18,8 +18,8 @@ import User_LogIn from './../components/User_LogIn.jsx'
 
 const USER_NAVIGATION_LINKS = () => (
 	<React.Fragment>
-		<NavLink to = {routes.USER_SignUp_Route}><button>Sign Up</button></NavLink>
-		<NavLink to = {routes.USER_LogIn_Route}><button>Log In</button></NavLink>
+		<NavLink to = {clientRoutes.USER_SignUp_Route}><button>Sign Up</button></NavLink>
+		<NavLink to = {clientRoutes.USER_LogIn_Route}><button>Log In</button></NavLink>
 
 		{/* ADD MORE NAV LINK BUTTONS HERE*/}
 	</React.Fragment>
@@ -28,8 +28,8 @@ const USER_NAVIGATION_LINKS = () => (
 //add more routes here
 const USER_ROUTE_LINKS = () => (
 	<React.Fragment>
-		<Route exact path={routes.USER_SignUp_Route} children={({match}) => match && <User_SignUp/>}/>
-		<Route exact path={routes.USER_LogIn_Route} children={({match}) => match && <User_LogIn/>}/>
+		<Route exact path={clientRoutes.USER_SignUp_Route} children={({match}) => match && <User_SignUp/>}/>
+		<Route exact path={clientRoutes.USER_LogIn_Route} children={({match}) => match && <User_LogIn/>}/>
 
 		{/* ADD MORE ROUTES HERE */}
 	</React.Fragment>

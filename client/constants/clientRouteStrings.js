@@ -1,5 +1,5 @@
 /**
- * Holds all of the Route Strings as Constants so that they can accessed where imported
+ * Holds all of the Client Route Strings as Constants so that they can accessed where imported
  */
 
 export const HOME_Route = '/';

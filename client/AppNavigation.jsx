@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom'
 
 //import necessary route constants
-import * as routes from './constants/routeStrings'
+import * as clientRoutes from './constants/clientRouteStrings'
 
 //import necessary components
 import API_User from './containers/API_User.jsx';
@@ -11,8 +11,8 @@ import API_User from './containers/API_User.jsx';
 //add more links here
 const APP_NAVIGATION_LINKS = () => (
 	<React.Fragment>
-		<NavLink to = {routes.HOME_Route}><button >Home</button></NavLink>
-		<NavLink to = {routes.API_User_Route}><button >Go to User API</button></NavLink>
+		<NavLink to = {clientRoutes.HOME_Route}><button >Home</button></NavLink>
+		<NavLink to = {clientRoutes.API_User_Route}><button >Go to User API</button></NavLink>
 
 		{/* ADD MORE NAV LINK BUTTONS HERE*/}
 	</React.Fragment>
@@ -21,8 +21,8 @@ const APP_NAVIGATION_LINKS = () => (
 //add more routes here
 const APP_ROUTE_LINKS = () => (
 	<React.Fragment>
-		<Route exact path={routes.HOME_Route} render ={() => <h3>Welcome to Launchpad</h3>}/>
-		<Route path={routes.API_User_Route} children={({match}) => match && <API_User/>}/>
+		<Route exact path={clientRoutes.HOME_Route} render ={() => <h3>Welcome to Launchpad</h3>}/>
+		<Route path={clientRoutes.API_User_Route} children={({match}) => match && <API_User/>}/>
 
 		{/* ADD MORE ROUTES HERE */}
 	</React.Fragment>

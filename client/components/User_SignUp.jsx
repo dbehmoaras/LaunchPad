@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
+//import serverRoute functionality
+import serverUI from './../functions/serverUserInterface.js'
+
 //import custom AUTHENTICATION functionality
 import userAuth from './../functions/userAuthentication.js'
+
 
 //refactor to shorthand if you end up not needing the full structure
 
@@ -41,6 +45,8 @@ class User_SignUp extends Component {
 function submitSignUp(e, actionFunc = null){
   //implement passwod hashing here. should send a prehashed password to the server
   userSignUpInput.password = secureSignUp();
+
+  serverUI.serverTest();
 
   if (!actionFunc) console.log('Sign Up clicked userSignUpInput:',userSignUpInput);
   else console.log('submitSignUp else fired');

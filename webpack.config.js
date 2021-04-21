@@ -33,6 +33,7 @@ module.exports = {
     publicPath: '/build', //the default port is 8080, the default webpack dev server, load static files
     proxy: {
       '/api': 'http://localhost:3000' //connects to the proxy server, in server.js. how we connect to node. points to the /api/leaders route in server.js
+      //this is how to route to the server. fetch /api
     }
   }
 }

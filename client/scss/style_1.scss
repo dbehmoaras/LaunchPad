@@ -1,8 +1,23 @@
 //insert styles here. can also add variables or set them in another file
 body {
-    background-color: $customBlue;
+	background-color: $customBlue;
 }
 
 h1 {
-    color: #0000FF;
+	color: #0000FF;
+}
+
+.userLogInContainer{
+	display: grid;
+	grid-template-columns: 100px;
+}
+
+.userInputFieldContainer{
+  color: #111111;
+	display: flex;
+	grid-template-columns: auto;
+}
+
+.userInputField{
+	color: #111111;
 }

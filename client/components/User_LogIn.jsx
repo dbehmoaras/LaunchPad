@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import userAuth from './../functions/userAuthentication.js'
+
 //refactor to shorthand if you end up not needing the full structure
 
 const userLogInInput = {
@@ -16,10 +18,10 @@ class User_LogIn extends Component {
     return(
       <div className="userAccessContainer">
         <div className="userInputFieldContainer">
-        <label>email:</label>
-        <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'email')}></input>
-        <label>password:</label>
-        <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
+          <label>email:</label>
+          <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'email')}></input>
+          <label>password:</label>
+          <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
         </div>
         <button className="userAccessButton" onClick={(e) => submitLogIn(e)}>Log In</button>
       </div>
@@ -30,7 +32,10 @@ class User_LogIn extends Component {
 
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitLogIn(e, actionFunc = null){
-  if (!actionFunc) console.log('Sign Up clicked userLogInInput:',userLogInInput);
+
+  userLogInInput.password = secureLogIn();
+
+  if (!actionFunc) console.log('LogIn clicked userLogInInput:',userLogInInput);
   else console.log('submitLogin else fired');
 }
 
@@ -38,5 +43,10 @@ function submitLogIn(e, actionFunc = null){
 function onInputChange (e, key){
   userLogInInput[key] = e.target.value;
 }
+
+function secureLogIn () {
+  return userAuth.HASH(userLogInInput.password, userAuth.SALT)
+}
+
 
 export default User_LogIn;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 //import custom AUTHENTICATION functionality
+import userAuth from './../functions/userAuthentication.js'
 
 //refactor to shorthand if you end up not needing the full structure
 
@@ -17,6 +18,7 @@ class User_SignUp extends Component {
     super(props)
   }
   render(){
+    console.log(userAuth)
     return(
       <div className = "userAccessContainer">
         <div className="userInputFieldContainer">
@@ -37,6 +39,9 @@ class User_SignUp extends Component {
 
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitSignUp(e, actionFunc = null){
+  //implement passwod hashing here. should send a prehashed password to the server
+  userSignUpInput.password = secureSignUp();
+
   if (!actionFunc) console.log('Sign Up clicked userSignUpInput:',userSignUpInput);
   else console.log('submitSignUp else fired');
 }
@@ -44,6 +49,10 @@ function submitSignUp(e, actionFunc = null){
 //updates the userSignUpInput object according to the key being passed in (email, pasword, firstName, lastName etc)
 function onInputChange (e, key){
   userSignUpInput[key] = e.target.value;
+}
+
+function secureSignUp(){
+  return userAuth.HASH(userSignUpInput.password,userAuth.SALT)
 }
 
 export default User_SignUp;

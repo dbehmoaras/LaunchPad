@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 //refactor to shorthand if you end up not needing the full structure
 
@@ -16,8 +16,8 @@ class User_SignUp extends Component {
   constructor(props) {
     super(props)
   }
-
   render(){
+    console.log('BCRYPT',bcrypt)
     return(
       <div className = "userAccessContainer">
         <div className="userInputFieldContainer">
@@ -30,7 +30,7 @@ class User_SignUp extends Component {
           <label>password:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'lastName')}></input>
         </div>
-        <button className="userAccessButton" onClick={(e) => handleClick(e)}>Sign Up</button>
+        <button className="userAccessButton" onClick={(e) => submitSignUp(e)}>Sign Up</button>
       </div>
     )
   }

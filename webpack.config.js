@@ -36,9 +36,10 @@ module.exports = {
       //this is how to route to the server. fetch /api
     }
   },
-  // resolve: {
-  //   fallback: {
-  //     "crypto": require.resolve("crypto-browserify")
-  //   }
-  // }
+  resolve: {
+    fallback: {
+      "crypto": false,
+      // "crypto-browserify":
+    }
+  }
 }

@@ -21,7 +21,7 @@ class User_LogIn extends Component {
         <label>password:</label>
         <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
         </div>
-        <button className="userAccessButton" onClick={(e) => handleClick(e)}>Log In</button>
+        <button className="userAccessButton" onClick={(e) => submitLogIn(e)}>Log In</button>
       </div>
 
     )
@@ -29,7 +29,7 @@ class User_LogIn extends Component {
 }
 
 //handles signUp button data submission to the server. consider turning this into a post request
-function submitLogin(e, actionFunc = null){
+function submitLogIn(e, actionFunc = null){
   if (!actionFunc) console.log('Sign Up clicked userLogInInput:',userLogInInput);
   else console.log('submitLogin else fired');
 }

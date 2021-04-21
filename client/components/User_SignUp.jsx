@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const bcrypt = require('bcryptjs');
+//import custom AUTHENTICATION functionality
 
 //refactor to shorthand if you end up not needing the full structure
 
@@ -9,7 +9,7 @@ const userSignUpInput = {
   password: '',
   firstName: '',
   lastName: ''
-  //add more key value pairs here. make sure to add input fields or other logic as needed
+  // add more key value pairs here. make sure to add input fields or other logic as needed
 }
 
 class User_SignUp extends Component {
@@ -17,7 +17,6 @@ class User_SignUp extends Component {
     super(props)
   }
   render(){
-    console.log('BCRYPT',bcrypt)
     return(
       <div className = "userAccessContainer">
         <div className="userInputFieldContainer">

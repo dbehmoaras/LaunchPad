@@ -5,4 +5,4 @@
  */
 
 export const SRV_Main = '/server'
-export const SRV_Test = '/server/leaders';
+export const SRV_Test = '/server/test';

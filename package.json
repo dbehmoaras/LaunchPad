@@ -20,7 +20,9 @@
   "homepage": "https://github.com/dbehmoaras/soloProjCS#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
     "browserify": "^17.0.0",
+    "crypto-browserify": "^3.12.0",
     "css-loader": "^5.2.4",
     "express": "^4.17.1",
     "prop-types": "^15.7.2",

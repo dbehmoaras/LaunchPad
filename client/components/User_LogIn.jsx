@@ -14,14 +14,14 @@ class User_LogIn extends Component {
 
   render(){
     return(
-      <div className="userLogInContainer">
+      <div className="userAccessContainer">
         <div className="userInputFieldContainer">
         <label>email:</label>
         <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'email')}></input>
         <label>password:</label>
         <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
         </div>
-        <button onClick={(e) => handleClick(e)}>Log In</button>
+        <button className="userAccessButton" onClick={(e) => handleClick(e)}>Log In</button>
       </div>
 
     )

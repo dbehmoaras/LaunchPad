@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// const bcrypt = require('bcryptjs')
+
 //refactor to shorthand if you end up not needing the full structure
 
 const userSignUpInput = {
@@ -17,7 +19,7 @@ class User_SignUp extends Component {
 
   render(){
     return(
-      <div className = "userSignUpContainer">
+      <div className = "userAccessContainer">
         <div className="userInputFieldContainer">
           <label>email:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'email')}></input>
@@ -28,7 +30,7 @@ class User_SignUp extends Component {
           <label>password:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'lastName')}></input>
         </div>
-        <button onClick={(e) => handleClick(e)}>Sign Up</button>
+        <button className="userAccessButton" onClick={(e) => handleClick(e)}>Sign Up</button>
       </div>
     )
   }

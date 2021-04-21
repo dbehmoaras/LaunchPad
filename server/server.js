@@ -9,11 +9,11 @@ const leaderList = [
 
 const welcomeToAPI = 'WELCOME TO API'
 
-app.get('/api/leaders',(req,res) => {
+app.get('/server/leaders',(req,res) => {
   return res.status(200).send(leaderList);
 })
 
-app.get('/api',(req,res) => {
+app.get('/server',(req,res) => {
   return res.status(200).send(welcomeToAPI);
 })
 

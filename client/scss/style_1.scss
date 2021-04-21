@@ -7,17 +7,22 @@ h1 {
 	color: #0000FF;
 }
 
-.userLogInContainer{
+.userAccessContainer{
 	display: grid;
-	grid-template-columns: 100px;
+	max-width: 300px;
+	grid-template-columns: auto;
 }
 
 .userInputFieldContainer{
   color: #111111;
-	display: flex;
+	display: grid;
 	grid-template-columns: auto;
 }
 
 .userInputField{
-	color: #111111;
+	color: #009900;
+}
+
+.userAccessButton{
+	margin-top: 20px;
 }

@@ -10,7 +10,7 @@ const axios = require('axios');
 //function tests access to the server. should return a simple object
 const serverTest = () => {
   console.log('******* SERVER TEST FIRED ********')
-  axios.get(serverRoutes.SRV_Leaders_Test)
+  axios.get(serverRoutes.SRV_Test)
     .then((data) =>{
       console.log(data);
     })

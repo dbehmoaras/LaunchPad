@@ -7,14 +7,14 @@ const testObj = [
   {name: 'Lucy', age: 29}
 ]
 
-const welcomeToAPI = 'WELCOME TO API'
-
-app.get('/server/leaders',(req,res) => {
-  return res.status(200).send(testObj);
+const welcomeToServer = 'WELCOME TO SERVER'
+app.get('/server',(req,res) => {
+  return res.status(200).send(welcomeToServer);
 })
 
-app.get('/server',(req,res) => {
-  return res.status(200).send(welcomeToAPI);
+
+app.get('/server/test',(req,res) => {
+  return res.status(200).send(testObj);
 })
 
 

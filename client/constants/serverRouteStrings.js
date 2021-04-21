@@ -4,4 +4,5 @@
  *    opinionated, but it will be very helpful to you
  */
 
-export const SRV_Leaders_Test = '/server/leaders';
+export const SRV_Main = '/server'
+export const SRV_Test = '/server/leaders';

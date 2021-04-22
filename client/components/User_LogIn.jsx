@@ -35,11 +35,12 @@ class User_LogIn extends Component {
 }
 
 //handles signUp button data submission to the server. consider turning this into a post request
-function submitLogIn(e, actionFunc = null){
+async function submitLogIn(e, actionFunc = null){
 
   // get the hash key from the server
 
-  const hashData = serverUI.userAuthLogIn(userLogInInput);
+  const hashData = await serverUI.userAuthLogIn(userLogInInput);
+  console.log('submitLogIn userLogInInput:', userLogInInput)
   console.log('submitLogIn hashData:',hashData);
 
 

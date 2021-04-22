@@ -5,6 +5,8 @@ import serverUI from './../../functions/serverUserInterface.js'
 
 
 import User_Secret from './User_Secret.jsx';
+import User_FailedLogin from './User_FailedLogin.jsx';
+
 
 const userLogInInput = {
   email: '',
@@ -15,7 +17,7 @@ class User_LogIn extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      logIn: false,
+      logIn: undefined,
     }
     this.submitLogIn = this.submitLogIn.bind(this);
   }
@@ -30,6 +32,9 @@ class User_LogIn extends Component {
   }
 
   render(){
+    let secret = null;
+    if (this.state.logIn === true) secret = <User_Secret/>;
+    else if (this.state.logIn === false) secret = <User_FailedLogin/>;
     return(
       <div className="userAccessContainer">
         <div className="userInputFieldContainer">
@@ -39,9 +44,8 @@ class User_LogIn extends Component {
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
         </div>
         <button className="userAccessButton" onClick={(e) => this.submitLogIn(e)}>Log In</button>
-        {this.state.logIn ? <User_Secret/> : null}
+        {secret}
       </div>
-
     )
   }
 }

@@ -15,7 +15,7 @@ userController.signUp = (req, res, next) => {
   ]
 
   const qString =
-    `INSERT INTO users (email, hash, lastname, firstname)
+    `INSERT INTO users_crypt (email, hash, lastname, firstname)
     VALUES ($1, crypt($2 ,gen_salt('bf')), $3, $4)`;
 
   db.query(qString, values)
@@ -35,7 +35,7 @@ userController.logIn = (req, res, next) => {
   console.log('userController.logIn', req.body);
 
   const values = [req.body.email]
-  const qString = `SELECT (email, hash) FROM users WHERE email = $1`;
+  const qString = `SELECT (email, hash) FROM users_crypt WHERE email = $1`;
 
   db.query(qString, values)
     .then(data => {

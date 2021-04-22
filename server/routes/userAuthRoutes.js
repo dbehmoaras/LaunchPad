@@ -19,6 +19,14 @@ userAuthRouter.post(
 })
 
 
+userAuthRouter.post(
+  '/logIn',
+  userController.logIn,
+  (req,res) => {
+    return res.status(200).json(res.locals.userQueryResponse);
+  }
+)
+
 //add login route
 
 //add more toures below

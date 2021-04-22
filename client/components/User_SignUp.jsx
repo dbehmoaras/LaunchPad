@@ -44,13 +44,14 @@ class User_SignUp extends Component {
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitSignUp(e, actionFunc = null){
   //implement passwod hashing here. should send a prehashed password to the server
-  userSignUpInput.password = getHash();
+  //gets hashes the password using bcrypt
+  userSignUpInput.password = passwordHash();
 
-  // serverUI.serverTest();
+  // signs up for the service. sends the user info with pre-hashed password to the server and adds it to the users table in postgreSQL
   serverUI.userAuthSignUp(userSignUpInput);
 
-  if (!actionFunc) console.log('Sign Up clicked userSignUpInput:',userSignUpInput);
-  else console.log('submitSignUp else fired');
+  if (!actionFunc) console.log('Sign Up clicked userSignUpInput. add action dispatch for post sign up execution');
+  else console.log('submitSignUp actionFunc passed in');
 }
 
 //updates the userSignUpInput object according to the key being passed in (email, pasword, firstName, lastName etc)
@@ -58,7 +59,7 @@ function onInputChange (e, key){
   userSignUpInput[key] = e.target.value;
 }
 
-function getHash(){
+function passwordHash(){
   return userAuth.HASH(userSignUpInput.password,userAuth.SALT)
 }
 

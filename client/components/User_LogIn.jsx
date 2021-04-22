@@ -33,7 +33,7 @@ class User_LogIn extends Component {
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitLogIn(e, actionFunc = null){
 
-  userLogInInput.password = secureLogIn();
+  // get the hash key from the server
 
   if (!actionFunc) console.log('LogIn clicked userLogInInput:',userLogInInput);
   else console.log('submitLogin else fired');
@@ -44,8 +44,9 @@ function onInputChange (e, key){
   userLogInInput[key] = e.target.value;
 }
 
-function secureLogIn () {
-  return userAuth.HASH(userLogInInput.password, userAuth.SALT)
+
+function compareHash () {
+  return userAuth.CHECK(userLogInInput.password, userAuth.SALT)
 }
 
 

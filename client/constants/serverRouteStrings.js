@@ -11,6 +11,7 @@ const SRV_Test = '/server/test';
 
 const SRV_UserAuth = '/server/userAuth';
 const SRV_UserAuth_SignUp = '/server/userAuth/signUp';
+const SRV_UserAuth_LogIn = '/server/userAuth/logIn';
 
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   SRV_Test: SRV_Test,
   SRV_UserAuth: SRV_UserAuth,
   SRV_UserAuth_SignUp: SRV_UserAuth_SignUp,
+  SRV_UserAuth_LogIn: SRV_UserAuth_LogIn,
 }

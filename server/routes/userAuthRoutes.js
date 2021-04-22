@@ -1,6 +1,7 @@
 const express = require('express');
 const userAuthRouter = express.Router();
 const path = require('path');
+const cookieController = require('./../controllers/userAuthControl/cookieController');
 
 //require in the userController
 const userController = require('./../controllers/userAuthControl/userController.js');
@@ -14,8 +15,9 @@ userAuthRouter.get('/', (req,res) => {
 userAuthRouter.post(
   '/signUp',
   userController.signUp,
+  cookieController.setSSIDCookie,
   (req,res) => {
-    return res.status(200).send('userAuthRoutes.post USER SIGNED UP');
+    return res.status(200).send('SIGN UP SUCCESSFUL COOKIE SENT');
   }
 )
 
@@ -23,8 +25,10 @@ userAuthRouter.post(
 userAuthRouter.post(
   '/logIn',
   userController.logIn,
+  cookieController.setSSIDCookie,
   (req,res) => {
-    return res.status(200).json(res.locals.userQueryResponse);
+    console.log('userAuthRouter login callback fired')
+    return res.status(200).send('LOG IN SUCCESSFUL COOKIE SENT');
   }
 )
 

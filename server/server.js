@@ -1,6 +1,7 @@
 const express = require('express');
 const serverApp = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 //require in the serverRouteStrings from the client
 const serverRouteStrings = require('./../client/constants/serverRouteStrings.js');
@@ -12,6 +13,7 @@ const userAuthRouter = require('./routes/userAuthRoutes.js');
 
 serverApp.use(express.json());
 serverApp.use(express.urlencoded({ extended: true }));
+serverApp.use(cookieParser());
 
 //connect external / auxiliary routers to the serverApp
 serverApp.use(serverRouteStrings.SRV_Test, testRouter);

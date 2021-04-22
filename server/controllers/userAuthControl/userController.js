@@ -33,27 +33,27 @@ userController.signUp = (req, res, next) => {
 
 userController.logIn = (req, res, next) => {
 
-  console.log('userController.logIn', req.body);
+  // console.log('userController.logIn', req.body);
 
 
   const qValues = [
     req.body.email,
   ]
-  console.log(qValues)
+  // console.log(qValues)
   const qString = `SELECT email, hash FROM users_crypt WHERE email = $1`;
 
   db.query(qString, qValues, (err, data) => {
     if (err) {
-      next({
+      return next({
         log: err,
         err: 'ERROR: userController.logIn failed to query a user in the database'
       })
     }
-    console.log('THIS IS NOW A CALLBACK',data.rows[0]);
+    // console.log('THIS IS NOW A CALLBACK',data.rows[0]);
     const passwordCheck = userAuth.CHECK(req.body.password,data.rows[0].hash);
-    console.log('passwordCheck: ',passwordCheck)
-    res.json('passwordCheck: ${passwordCheck}');
-    next();
+    // console.log('passwordCheck: ',passwordCheck)
+    // res.json({passwordCheck: passwordCheck});
+    return next();
   })
 
   /* promise chain form of query

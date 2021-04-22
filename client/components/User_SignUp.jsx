@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 //import serverRoute functionality
 import serverUI from './../functions/serverUserInterface.js'
 
-//import custom AUTHENTICATION functionality
-import userAuth from './../functions/userAuthentication.js'
 
-
-//refactor to shorthand if you end up not needing the full structure
 
 const userSignUpInput = {
   email: '',
@@ -43,10 +39,6 @@ class User_SignUp extends Component {
 
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitSignUp(e, actionFunc = null){
-  //implement passwod hashing here. should send a prehashed password to the server
-  //gets hashes the password using bcrypt
-  // userSignUpInput.password = passwordHash();
-  console.log('submitSignUp: userSignUpInput', userSignUpInput)
 
   // signs up for the service. sends the user info with pre-hashed password to the server and adds it to the users table in postgreSQL
   serverUI.userAuthSignUp(userSignUpInput);
@@ -58,10 +50,6 @@ function submitSignUp(e, actionFunc = null){
 //updates the userSignUpInput object according to the key being passed in (email, pasword, firstName, lastName etc)
 function onInputChange (e, key){
   userSignUpInput[key] = e.target.value;
-}
-
-function passwordHash(){
-  return userAuth.HASH(userSignUpInput.password,userAuth.SALT)
 }
 
 export default User_SignUp;

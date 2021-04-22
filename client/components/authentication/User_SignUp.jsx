@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //import serverRoute functionality
-import serverUI from './../functions/serverUserInterface.js'
+import serverUI from './../../functions/serverUserInterface.js'
 
 
 

@@ -6,8 +6,8 @@ import { Route, NavLink } from 'react-router-dom';
 import * as clientRoutes from './../constants/clientRouteStrings';
 
 //import child classes to have them rendered through the router
-import User_SignUp from './../components/User_SignUp.jsx';
-import User_LogIn from './../components/User_LogIn.jsx'
+import User_SignUp from './../components/authentication/User_SignUp.jsx';
+import User_LogIn from './../components/authentication/User_LogIn.jsx'
 
 
 

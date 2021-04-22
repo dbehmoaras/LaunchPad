@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 //import serverRoute functionality
-import serverUI from './../functions/serverUserInterface.js'
+import serverUI from './../../functions/serverUserInterface.js'
 
 //import custom AUTHENTICATION functionality
-import userAuth from './../functions/userAuthentication.js'
+import userAuth from './../../functions/userAuthentication.js'
 
 //refactor to shorthand if you end up not needing the full structure
 

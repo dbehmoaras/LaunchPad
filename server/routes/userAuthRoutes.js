@@ -15,8 +15,9 @@ userAuthRouter.post(
   '/signUp',
   userController.signUp,
   (req,res) => {
-  return res.status(200).send('userAuthRoutes.post USER SIGNED UP');
-})
+    return res.status(200).send('userAuthRoutes.post USER SIGNED UP');
+  }
+)
 
 
 userAuthRouter.post(

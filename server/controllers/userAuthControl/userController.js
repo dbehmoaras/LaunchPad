@@ -39,10 +39,10 @@ userController.logIn = (req, res, next) => {
 
   db.query(qString, values)
     .then(data => {
-      console.log('NEXT STEP: invoke next, move to cookie middleWare. data:',data);
-      res.locals.userQueryResponse = data.rows[0];
-      next();
+      console.log('NEXT STEP: invoke next, move to cookie middleWare. data:',data.rows[0]);
+      res.json(data.rows[0]);
     })
+    .then(next)
     .catch(err => next({
       log: err,
       err: 'ERROR: userController.logIn failed to query a user in the database'

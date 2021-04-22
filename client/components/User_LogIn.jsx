@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+//import serverRoute functionality
+import serverUI from './../functions/serverUserInterface.js'
+
+//import custom AUTHENTICATION functionality
 import userAuth from './../functions/userAuthentication.js'
 
 //refactor to shorthand if you end up not needing the full structure
@@ -34,6 +38,10 @@ class User_LogIn extends Component {
 function submitLogIn(e, actionFunc = null){
 
   // get the hash key from the server
+
+  const hashData = serverUI.userAuthLogIn(userLogInInput);
+  console.log('submitLogIn hashData:',hashData);
+
 
   if (!actionFunc) console.log('LogIn clicked userLogInInput:',userLogInInput);
   else console.log('submitLogin else fired');

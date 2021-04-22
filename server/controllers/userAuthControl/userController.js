@@ -51,9 +51,9 @@ userController.logIn = (req, res, next) => {
     }
     // console.log('THIS IS NOW A CALLBACK',data.rows[0]);
     const passwordCheck = userAuth.CHECK(req.body.password,data.rows[0].hash);
-    // console.log('passwordCheck: ',passwordCheck)
-    // res.json({passwordCheck: passwordCheck});
-    return next();
+
+    if (passwordCheck) return next();
+    else return res.status(302).json({logIn: false})
   })
 
   /* promise chain form of query

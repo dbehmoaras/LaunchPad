@@ -28,9 +28,11 @@ userAuthRouter.post(
   cookieController.setSSIDCookie,
   (req,res) => {
     console.log('userAuthRouter login callback fired')
-    return res.status(200).send('LOG IN SUCCESSFUL COOKIE SENT');
+    return res.status(200).json({logIn: true});
   }
 )
+
+// userAuthRouter
 
 //add login route
 

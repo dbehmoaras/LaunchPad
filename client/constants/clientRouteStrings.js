@@ -8,6 +8,7 @@ const HOME_Route = '/';
 const API_User_Route = '/API_User';
 const USER_SignUp_Route = '/API_User/signUp';
 const USER_LogIn_Route = '/API_User/logIn';
+const USER_Secret_Route = '/API_User/secret'
 
 module.exports = {
   HOME_Route: HOME_Route,

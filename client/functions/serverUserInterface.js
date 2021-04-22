@@ -54,6 +54,7 @@ const userAuthLogIn = async (logInInput) => {
     })
     .catch((err) =>{
       console.log(err);
+      console.log('LOGIN FAILED');
       // return;
     });
 

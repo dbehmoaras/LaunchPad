@@ -12,12 +12,18 @@ const SRV_Test = '/server/test';
 const SRV_UserAuth = '/server/userAuth';
 const SRV_UserAuth_SignUp = '/server/userAuth/signUp';
 const SRV_UserAuth_LogIn = '/server/userAuth/logIn';
+// const SRV_UserAuth_LogInFailed = '/server/userAuth/logInFail';
+// const SRV_UserAuth_LogInSuccess = '/server/userAuth/secret';
 
 
 module.exports = {
   SRV_Main: SRV_Main,
   SRV_Test: SRV_Test,
+
   SRV_UserAuth: SRV_UserAuth,
   SRV_UserAuth_SignUp: SRV_UserAuth_SignUp,
   SRV_UserAuth_LogIn: SRV_UserAuth_LogIn,
+  // SRV_UserAuth_LogInFailed: SRV_UserAuth_LogInFailed,
+  // SRV_UserAuth_LogInSuccess: SRV_UserAuth_LogInSuccess,
+
 }

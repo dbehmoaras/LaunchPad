@@ -9,7 +9,9 @@ class User_FailedLogin extends Component {
   render(){
     return (
       <div>
-        <h3>LOGIN FAILED, unable to authenticate</h3>
+        <h3>LOGIN SUCCESS, HERE'S THE SECRET:</h3>
+        <h1>THE CAKE IS A LIE</h1>
+        <img src="https://media4.s-nbcnews.com/j/streams/2013/April/130423/6C7066768-portalcake.fit-560w.jpg"></img>
       </div>
     )
   }

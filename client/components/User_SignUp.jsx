@@ -12,8 +12,8 @@ import userAuth from './../functions/userAuthentication.js'
 const userSignUpInput = {
   email: '',
   password: '',
+  lastName: '',
   firstName: '',
-  lastName: ''
   // add more key value pairs here. make sure to add input fields or other logic as needed
 }
 
@@ -30,10 +30,10 @@ class User_SignUp extends Component {
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'email')}></input>
           <label>password:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
+          <label>last name:</label>
+          <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'lastName')}></input>
           <label>first name:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'firstName')}></input>
-          <label>password:</label>
-          <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'lastName')}></input>
         </div>
         <button className="userAccessButton" onClick={(e) => submitSignUp(e)}>Sign Up</button>
       </div>

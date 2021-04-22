@@ -8,32 +8,22 @@ const serverRouteStrings = require('./../client/constants/serverRouteStrings.js'
 
 //require in all necessary routers
 const testRouter = require('./routes/testRoutes.js');
+const userAuthRouter = require('./routes/userAuthRoutes.js');
 
 serverApp.use(express.json());
 serverApp.use(express.urlencoded({ extended: true }));
 
 //connect external / auxiliary routers to the serverApp
 serverApp.use(serverRouteStrings.SRV_Test, testRouter);
-
-// const testObj = [
-//   {name: 'David', age: 29 },
-//   {name: 'Lucy', age: 29}
-// ]
+serverApp.use(serverRouteStrings.SRV_UserAuth, userAuthRouter);
 
 
 //main server route. customize as needed
 const welcomeToServer = 'WELCOME TO SERVER'
-serverApp.get(serverRouteStrings.SRV_Main,(req,res) => {
+serverApp.get(serverRouteStrings.SRV_Main, (req,res) => {
   return res.status(200).send(welcomeToServer);
 })
 
-
-
-
-
-// serverApp.get(serverRouteStrings.SRV_Test,(req,res) => {
-//   return res.status(200).send(testObj);
-// })
 
 
 if (process.env.NODE_ENV === 'production'){
@@ -44,6 +34,21 @@ if (process.env.NODE_ENV === 'production'){
     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
   });
 }
+
+/**
+ * 404 handler
+ */
+serverApp.use('*', (req, res) => {
+  return res.status(404).send('********** GLOBAL BAD REQUEST / 404 ERROR **********');
+});
+
+/**
+ * Global error handler
+ */
+serverApp.use((err, req, res, next) => {
+  console.log(err);
+  return res.status(500).send('********** GLOBAL INTERNAL SERVER / 500 ERROR **********');
+});
 
 serverApp.listen(4000) //listens on port 3000
 

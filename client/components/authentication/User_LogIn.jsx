@@ -19,9 +19,15 @@ class User_LogIn extends Component {
     this.state = {
       logIn: false,
     }
+    this.submitLogIn = this.submitLogIn.bind(this);
   }
 
+  async submitLogIn(e, actionFunc = null){
+    const serverResponse = await serverUI.userAuthLogIn(userLogInInput);
+    // console.log('submitLogIn userLogInInput:', userLogInInput)
+    console.log('submitLogIn serverReponse:',serverResponse.data);
 
+  }
 
   render(){
     return(

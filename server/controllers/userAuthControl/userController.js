@@ -34,8 +34,11 @@ userController.logIn = (req, res, next) => {
 
   console.log('userController.logIn', req.body);
 
-  const values = [req.body.email]
-  const qString = `SELECT email, hash FROM users_crypt WHERE email = $1`;
+  const values = [
+    req.body.email,
+    req.body.password,
+  ]
+  const qString = `SELECT email, hash FROM users_crypt WHERE email = $1 AND hash = $2`;
 
   db.query(qString, values)
     .then(data => {

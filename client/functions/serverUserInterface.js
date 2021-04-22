@@ -9,22 +9,42 @@ const axios = require('axios');
 
 //function tests access to the server. should return a simple object
 const serverTest = () => {
-  console.log('******* SERVER TEST FIRED ********')
+  console.log('******** FRONT END SERVER TEST FIRED ********');
   axios.get(serverRoutes.SRV_Test)
-    .then((data) =>{
+    .then((data) => {
       console.log(data);
     })
     .catch((err) => {
       console.log(err);
-    })
-    console.log('******* SERVER TEST ENDED ********')
+    });
+  console.log('******** FRONT END SERVER TEST ENDED ********');
 }
+
+const userAuthSignUp = (signUpInput) => {
+  console.log('******** FRONT END userAuthSignUp FIRED ********');
+  axios.post(serverRoutes.SRV_UserAuth_SignUp, signUpInput)
+    .then(() => {
+      //this is where you want to send back the cookie and/or secret
+      //need more middleware on the server
+      console.log('userAuthSignUp post successful. replace this log with cookie')
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
+  console.log('******** FRONT END userAuthSignUp ENDED ********');
+}
+
+
+
+
+
 
 
 
 const serverUI = {
   serverTest: serverTest,
+  userAuthSignUp: userAuthSignUp,
 
+  //insert more serveUI KVPs
 }
-
 export default serverUI;

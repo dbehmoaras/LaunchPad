@@ -44,9 +44,10 @@ class User_SignUp extends Component {
 //handles signUp button data submission to the server. consider turning this into a post request
 function submitSignUp(e, actionFunc = null){
   //implement passwod hashing here. should send a prehashed password to the server
-  userSignUpInput.password = secureSignUp();
+  userSignUpInput.password = getHash();
 
-  serverUI.serverTest();
+  // serverUI.serverTest();
+  serverUI.userAuthSignUp(userSignUpInput);
 
   if (!actionFunc) console.log('Sign Up clicked userSignUpInput:',userSignUpInput);
   else console.log('submitSignUp else fired');
@@ -57,7 +58,7 @@ function onInputChange (e, key){
   userSignUpInput[key] = e.target.value;
 }
 
-function secureSignUp(){
+function getHash(){
   return userAuth.HASH(userSignUpInput.password,userAuth.SALT)
 }
 

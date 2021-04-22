@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //default failed login page/ render this as a child fo the login component for now. eventually make this part of the app's state once you start adding login properties. add this to the react routers
 
-class User_FailedLogin extends Component {
+class User_Secret extends Component {
   constructor(props) {
     super(props)
   }
@@ -18,4 +18,4 @@ class User_FailedLogin extends Component {
 }
 
 
-export default User_FailedLogIn
+export default User_Secret

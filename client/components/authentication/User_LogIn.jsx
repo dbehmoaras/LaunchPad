@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 //import serverRoute functionality
 import serverUI from './../../functions/serverUserInterface.js'
 
-//import custom AUTHENTICATION functionality
-import userAuth from './../../functions/userAuthentication.js'
 
-//refactor to shorthand if you end up not needing the full structure
+import User_Secret from './User_Secret.jsx';
 
 const userLogInInput = {
   email: '',
@@ -25,8 +23,10 @@ class User_LogIn extends Component {
   async submitLogIn(e, actionFunc = null){
     const serverResponse = await serverUI.userAuthLogIn(userLogInInput);
     // console.log('submitLogIn userLogInInput:', userLogInInput)
-    console.log('submitLogIn serverReponse:',serverResponse.data);
-
+    console.log('submitLogIn serverReponse what:',serverResponse.data.logIn);
+    this.setState({
+      logIn: serverResponse.data.logIn,
+    })
   }
 
   render(){
@@ -38,32 +38,18 @@ class User_LogIn extends Component {
           <label>password:</label>
           <input className="userInputField" type="text" onChange={(e) => onInputChange(e,'password')}></input>
         </div>
-        <button className="userAccessButton" onClick={(e) => submitLogIn(e)}>Log In</button>
+        <button className="userAccessButton" onClick={(e) => this.submitLogIn(e)}>Log In</button>
+        {this.state.logIn ? <User_Secret/> : null}
       </div>
 
     )
   }
 }
 
-//handles signUp button data submission to the server. consider turning this into a post request
-async function submitLogIn(e, actionFunc = null){
-
-
-  const serverResponse = await serverUI.userAuthLogIn(userLogInInput);
-  // console.log('submitLogIn userLogInInput:', userLogInInput)
-  console.log('submitLogIn serverReponse:',serverResponse.data);
-
-
-}
 
 //updates the userSignUpInput object according to the key being passed in (email, pasword, firstName, lastName etc)
 function onInputChange (e, key){
   userLogInInput[key] = e.target.value;
-}
-
-
-function compareHash () {
-  return userAuth.CHECK(userLogInInput.password, userAuth.SALT)
 }
 
 

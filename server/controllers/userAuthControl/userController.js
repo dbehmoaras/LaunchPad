@@ -52,7 +52,7 @@ userController.logIn = (req, res, next) => {
     console.log('THIS IS NOW A CALLBACK',data.rows[0]);
     const passwordCheck = userAuth.CHECK(req.body.password,data.rows[0].hash);
     console.log('passwordCheck: ',passwordCheck)
-    res.json(data.rows[0])
+    res.json('passwordCheck: ${passwordCheck}');
     next();
   })
 

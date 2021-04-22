@@ -15,11 +15,11 @@ const serverTest = () => {
   axios.get(serverRoutes.SRV_Test)
     .then((data) => {
       console.log(data);
-      // return;
+      return;
     })
     .catch((err) => {
       console.log(err);
-      // return;
+      return;
     });
   console.log('******** FRONT END SERVER TEST ENDED ********');
 }
@@ -30,12 +30,12 @@ const userAuthSignUp = (signUpInput) => {
     .then(() => {
       //this is where you want to send back the cookie and/or secret
       //need more middleware on the server
-      console.log('userAuthSignUp post successful. replace this log with cookie');
-      // return;
+      // console.log('userAuthSignUp post successful. replace this log with cookie');
+      return;
     })
     .catch((err) =>{
       console.log(err);
-      // return;
+      return;
     });
   console.log('******** FRONT END userAuthSignUp ENDED ********');
 }
@@ -44,23 +44,24 @@ const userAuthSignUp = (signUpInput) => {
 const userAuthLogIn = async (logInInput) => {
   console.log('******** FRONT END userAuthLogIn FIRED ********');
 
-  let serverHashData;
+  let serverResponse;
 
   await axios.post(serverRoutes.SRV_UserAuth_LogIn,logInInput)
     .then((data) => {
-      console.log('userAuthLogin data:',data);
-      serverHashData = data;
+      // console.log('userAuthLogin data:',data);
+      serverResponse = data;
       return;
     })
     .catch((err) =>{
-      console.log(err);
-      console.log('LOGIN FAILED');
-      // return;
+      // console.log(err);
+      // console.log('LOGIN FAILED');
+      serverResponse = err;
+      return;
     });
 
-  console.log('serverHashData',serverHashData)
+  console.log('serverResponse',serverResponse)
   console.log('******** FRONT END userAuthLogIn ENDED ********');
-  return serverHashData;
+  return serverResponse;
 }
 
 

@@ -53,7 +53,7 @@ userController.logIn = (req, res, next) => {
     const passwordCheck = userAuth.CHECK(req.body.password,data.rows[0].hash);
 
     if (passwordCheck) return next();
-    else return res.status(302).json({logIn: false})
+    else return res.status(200).json({logIn: false})
   })
 
   /* promise chain form of query

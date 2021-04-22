@@ -41,12 +41,12 @@ const userAuthSignUp = (signUpInput) => {
 }
 
 
-const userAuthLogIn = (logInInput) => {
+const userAuthLogIn = async (logInInput) => {
   console.log('******** FRONT END userAuthLogIn FIRED ********');
 
   let serverHashData;
 
-  axios.post(serverRoutes.SRV_UserAuth_LogIn,logInInput)
+  await axios.post(serverRoutes.SRV_UserAuth_LogIn,logInInput)
     .then((data) => {
       console.log('userAuthLogin data:',data);
       serverHashData = data;

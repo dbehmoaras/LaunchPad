@@ -6,11 +6,10 @@ const userAuth = {
   CHECK: (password, hash) => bcrypt.compareSync(password, hash),
 }
 
-export default userAuth;
+module.exports = userAuth;
 
 /** BCRYPT TEST & SAMPLE CODE
- *
-  BCRYPT TEST & SAMPLE CODE
+
   let pw = 'password';
   let sa = bcrypt.genSaltSync(10)
   let H = userAuth.HASH(pw,sa);
@@ -24,5 +23,8 @@ export default userAuth;
   console.timeEnd('bcrypt')
 
   const output = userAuth.CHECK('password',H);
+  const falseCheck = userAuth.CHECK('passworD',H);
   console.log(output)
+  console.log(falseCheck)
+
  */

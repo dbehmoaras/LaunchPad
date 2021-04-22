@@ -1,4 +1,5 @@
 const db = require('./../../sqlConnection.js');
+const userAuth = require('./userAuthModule.js')
 
 //bundle all userController middleware into a single userController object that can be exported as a module
 const userController = {};
@@ -48,8 +49,10 @@ userController.logIn = (req, res, next) => {
         err: 'ERROR: userController.logIn failed to query a user in the database'
       })
     }
-    console.log('THIS IS NOW A CALLBACK',data);
-    res.json(data)
+    console.log('THIS IS NOW A CALLBACK',data.rows[0]);
+    const passwordCheck = userAuth.CHECK(req.body.password,data.rows[0].hash);
+    console.log('passwordCheck: ',passwordCheck)
+    res.json(data.rows[0])
     next();
   })
 

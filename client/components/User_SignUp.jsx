@@ -18,7 +18,6 @@ class User_SignUp extends Component {
     super(props)
   }
   render(){
-    console.log(userAuth)
     return(
       <div className = "userAccessContainer">
         <div className="userInputFieldContainer">

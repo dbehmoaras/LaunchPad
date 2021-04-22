@@ -16,7 +16,12 @@ const userLogInInput = {
 class User_LogIn extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      logIn: false,
+    }
   }
+
+
 
   render(){
     return(

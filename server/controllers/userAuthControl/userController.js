@@ -15,8 +15,8 @@ userController.signUp = (req, res, next) => {
   ]
 
   const qString =
-    `INSERT INTO Users (Email, Hash, LastName, FirstName)
-    VALUES ($1, $2, $3, $4)`;
+    `INSERT INTO users_crypt (email, hash, lastname, firstname)
+    VALUES ($1, crypt($2 ,gen_salt('bf')), $3, $4)`;
 
   db.query(qString, values)
     .then(data => {

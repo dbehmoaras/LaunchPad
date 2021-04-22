@@ -45,7 +45,8 @@ class User_SignUp extends Component {
 function submitSignUp(e, actionFunc = null){
   //implement passwod hashing here. should send a prehashed password to the server
   //gets hashes the password using bcrypt
-  userSignUpInput.password = passwordHash();
+  // userSignUpInput.password = passwordHash();
+  console.log('submitSignUp: userSignUpInput', userSignUpInput)
 
   // signs up for the service. sends the user info with pre-hashed password to the server and adds it to the users table in postgreSQL
   serverUI.userAuthSignUp(userSignUpInput);

@@ -1,6 +1,6 @@
 const cookieController = {};
 
-
+//REFACTOR - should pull the user from the database
 cookieController.setSSIDCookie = (req,res,next) => {
   console.log('********* COOKIE CONTROLLER START *********')
   // console.log(req.body)
